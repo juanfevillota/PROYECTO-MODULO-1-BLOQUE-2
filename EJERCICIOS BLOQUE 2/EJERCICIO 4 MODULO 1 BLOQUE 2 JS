@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcular Área de un Triángulo</title>
+</head>
+<body>
+    <h1>Pseudocódigo para Calcular el área de un Triángulo</h1>
+    <form id="trianguloForm">
+        <label for="base">Ingrese base del triángulo (cm):</label><br>
+        <input type="number" id="base" name="base"><br><br>
+        <label for="altura">Ingrese altura del triángulo (cm):</label><br>
+        <input type="number" id="altura" name="altura"><br><br>
+        <input type="button" value="Calcular Área" onclick="calcularArea()">
+    </form>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularArea() {
+            var base = parseFloat(document.getElementById('base').value);
+            var altura = parseFloat(document.getElementById('altura').value);
+            if(isNaN(base) || isNaN(altura)) {
+                document.getElementById('resultado').innerHTML = 'Por favor, ingrese valores válidos para la base y la altura.';
+                return;
+            }
+            var area = (base * altura) / 2;
+            document.getElementById('resultado').innerHTML = 'Área del triángulo es ' + area + ' cm cuadrados';
+        }
+    </script>
+</body>
+</html>

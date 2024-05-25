@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Adivina el Número</title>
+</head>
+<body>
+    <h1>Bienvenido al Juego Adivina el Número =)</h1>
+    <button onclick="adivinaNumero()">Comenzar el Juego</button>
+
+    <script>
+        function adivinaNumero() {
+            let nombre = prompt('Hola JUGADOR, escribe tu nombre:');
+            alert('Hi! ' + nombre + ', vamos a jugar un juego. Las reglas son muy sencillas, si aciertas en menos de 20 intentos podrás obtener el regalo secreto.');
+
+            let intentos = 20;
+            let num_secreto = Math.floor(Math.random() * 100) + 1;
+
+            for (let a = 1; a <= 20; a++) {
+                let num_ingresado = parseInt(prompt('Adivine el número (de 1 a 100):'));
+
+                if (num_secreto === num_ingresado) {
+                    alert('¡Exacto! Usted adivinó en ' + a + ' intentos. Puedes reclamar tu premio: ERES MUY IMPORTANTE CON TU EXISTENCIA, TE DEBO UNA CHOCOLATINA =)');
+                    return;
+                } else {
+                    if (num_secreto > num_ingresado) {
+                        alert('Está muy FRIÓ, sube un poco el número');
+                    } else {
+                        alert('Estás demasiado CALIENTE, baja un poco el número');
+                    }
+                }
+
+                intentos--;
+                alert('¡Tú puedes, no te rindas! Te quedan: ' + intentos + ' intentos');
+            }
+
+            alert('El número era: ' + num_secreto);
+        }
+    </script>
+</body>
+</html>
